@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="form1" onsubmit="return AllSubmit()">
+        <input type="submit" name="sub" id="sub2" value="提交">&nbsp;
+        <input type="reset" name="Submit2" value="重置">   
+    </form>
+    <script>
+        function AllSubmit(){
+            var T = true;
+            var e = window.event;
+            var obj = e.srcElement;
+            for(var i = 1; i < 7; i++){
+                if (eval("obj." + "txt" + i).value == ""){
+                    T = false;
+                    break;
+                }
+            }
+            if(!T){
+                alert("提交的信息不允许为空");
+            }
+            return T;
+        }
+
+    </script>
+
+    <script>
+        var Arraycolor = new Array("olive","teal","red","blue","maroon","navy","lime","fuschia","green","purple","gray","yellow","aqua","white","silver");
+        var n = 0;
+        function turncolors(){
+            if (n == (Arraycolor.length-1)) n = 0;
+            n++;
+            document.bgColor = Arraycolor[n];
+        }
+    </script>
+    <form action="" name="form2" method="post">
+        <p>
+            <input type="button" name="Submit" id="" value="变换背景" onclick="turncolors()">
+
+        </p>
+        <p>用按钮随意变换背景颜色</p>
+    </form>
+    <p id="p1" style="color:#AA9900"; cursor:"pointer" onmousedown="mousedown()"
+    onmouseup = "mouseup()"><u>零基础学javascript</u>
+     </p>
+     <script>
+         function mousedown(){
+             var obj = document.getElementById('p1');
+             obj.style.color = '#0022AA';
+         }
+         function mouseup(){
+             var obj = document.getElementById('p1')
+             obj.style.color = "#AA9900"
+             
+         }
+     </script>
+
+     <a href="mailto:leilei1669065865@gmail.com">发送邮件</a>
+
+     <script>
+         function visible(cursor,i){
+             if(i == 0)
+                 cursor.style.opacity = 1;
+             else
+                cursor.style.opacity = 0.5;
+             
+         }
+    
+     </script>
+     <img src="pic1.jpeg" width="100px" alt="" onmouseover="visible(this,1)" onmouseout="visible(this,0)">
+     <script>
+         var x = 0, y = 0;
+         function MousePlace(){
+             x = window.event.x;
+             y = window.event.y;
+             document.getElementById('position').innerHTML = "鼠标在页面中的当前位置的横坐标x:" + x + "纵坐标y:" + y
+         }
+         document.onmousemove = MousePlace;
+
+     </script>
+     <span id="position"></span>
+     <script>
+         function Refurbish(){
+             if (window.event.keyCode == 65){
+                 location.reload();
+             }
+         }
+         document.onkeydown = Refurbish;
+     </script>
+     <img src="pic2.jpeg" alt="" width="100px">
+</body>
+</html>
